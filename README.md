@@ -1,6 +1,7 @@
 # Forecastapp
 Web app developed with Streamlit & Prophet
 This application is a front end for forecasting using Prophet library. 
+
 The app structure follow the process of building and evaluating a forecast:
 
 1. Load the time series
@@ -14,13 +15,19 @@ Seasonality: choose beetwen Additive seasonality or Multiplicative seasonality. 
 Trend components: declare which trends want to discover and propagate. Daily should be selected if loading a dataset with hourly data. Weekly: Prophet will search for thrend during days of the week (monday to sunday). Monthly: Prophet will search for trend during days of the month (1th to 31th). Yearly: will evaluate trend within months of the year( january to december) -Growth model: choose beetwen linear growth or logistic growth, to specify carrying capacity, for example if there is a maximum achievable point. The app allows then to specify cap and floor of the logistic model.
 Holidays: add holidays to the model. Available countries at the moment: Italy, Spain, France, United States, Germany, Ukraine.
 Hyperparameters: Change the scale of the changepoints or holidays. It impacts the flexibility of the model.
+
+
 3. Fit the model and predict future
 Initialize the model with the settings configured above (Fit)
 Generate forecast (Predict): will plot forecast with standard Prophet charts
 Show components: shows finding about time components selected in point 2.
+
+
 4. Evaluate and validate prediction
 Set the k-fold configuration: specify the initial timeframe to keep as training data, the horizon to predict and recurrency of the prediction as period.
 Calculate the metrics related to the cross-validatio. A dataframe will be generated and a plot of the selected metric will be created.
+
+
 5. Hyperparameter tuning
 Runs the model with all the combinations possible within the matrix of coefficients of scaling. It return the best combination of changepoint ans seasonality prior scale, which can be used to go back above at point 2 and embed in the model and create an optimized forecast.
 
